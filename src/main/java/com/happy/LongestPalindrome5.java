@@ -10,13 +10,50 @@ package com.happy;
 public class LongestPalindrome5 {
 
     /**
-     * 中心扩展法
+     * 解法一：暴力法
+     * 时间复杂度：O(n³)，空间复杂度：O(1)
+     *
+     * @param s
+     * @return
+     */
+    public String longestPalindrome1(String s) {
+        if (s == null || s.length() < 1) {
+            return "";
+        }
+        if (s.length() == 1) {
+            return s;
+        }
+
+        int strLength = s.length();
+        String reverseString = new StringBuffer(s).reverse().toString();
+        String longestPalindromeStr = "";
+        int maxLength = 0;
+        int start, end;
+        for (int i = 0; i < strLength; i++) {
+            start = i;
+            for (end = strLength; ; end--) {
+                if (start >= end) {
+                    break;
+                }
+                String subStr = s.substring(start, end);
+                int temp = end - start;
+                if (temp > maxLength && reverseString.contains(subStr)) {
+                    longestPalindromeStr = subStr;
+                    maxLength = temp;
+                }
+            }
+        }
+        return longestPalindromeStr;
+    }
+
+    /**
+     * 解法二：中心扩展法
      * 时间复杂度：O(n²)，空间复杂度：O(1)
      *
      * @param s
      * @return
      */
-    public String longestPalindrome(String s) {
+    public String longestPalindrome2(String s) {
         if (s == null || s.length() < 1) {
             return "";
         }
