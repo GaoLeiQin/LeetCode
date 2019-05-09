@@ -20,4 +20,25 @@ public class PalindromeNumber9 {
         sb.append(x);
         return String.valueOf(x).equals(sb.reverse().toString());
     }
+
+    /**
+     * 解法二：比较一半的回文数
+     * 时间复杂度：O(log(x))，空间复杂度：O(1)，其中 x指有log⑩(x)位数字
+     *
+     * @param x
+     * @return
+     */
+    public boolean isPalindrome2(int x) {
+        if(x < 0 || (x % 10 == 0 && x != 0)) {
+            return false;
+        }
+
+        int revertedNumber = 0;
+        while(x > revertedNumber) {
+            revertedNumber = revertedNumber * 10 + x % 10;
+            x /= 10;
+        }
+
+        return x == revertedNumber || x == revertedNumber/10;
+    }
 }
