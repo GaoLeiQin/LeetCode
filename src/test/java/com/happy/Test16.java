@@ -15,6 +15,7 @@ public class Test16 {
         int[] arr = {-1, 2, 1, -4};
         int target = 1;
         System.out.println("解法一：最接近的三数之和 " + threeSumClosest16.threeSumClosest(arr, target));
+        System.out.println("解法二：最接近的三数之和 " + threeSumClosest16.threeSumClosest2(arr, target));
     }
 
 }

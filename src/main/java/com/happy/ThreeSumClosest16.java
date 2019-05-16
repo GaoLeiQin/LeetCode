@@ -13,32 +13,62 @@ import java.util.Arrays;
 public class ThreeSumClosest16 {
     /**
      * 解法一：暴力法
-     * 时间复杂度：O(n²)，空间复杂度：O(n)
+     * 时间复杂度：O(n³)，空间复杂度：O(1)
      *
      * @param nums
      * @param target
      * @return
      */
     public int threeSumClosest(int[] nums, int target) {
-        Arrays.sort(nums);
-        int closestNum = nums[0] + nums[1] + nums[2];
-        for (int i = 0; i < nums.length - 2; i++) {
-            int l = i + 1, r = nums.length - 1;
-            while (l < r){
-                int threeSum = nums[l] + nums[r] + nums[i];
-                if (Math.abs(threeSum - target) < Math.abs(closestNum - target)) {
-                    closestNum = threeSum;
+        int closestNum = 0, size = nums.length, largerNum = Integer.MAX_VALUE;
+        for (int i = 0; i < size; i++) {
+            for (int j = i + 1; j < size; j++) {
+                for (int k = j + 1; k < size; k++) {
+                    int sum = nums[i] + nums[j] + nums[k];
+                    int diff = sum - target;
+                    diff = diff >= 0 ? diff : -diff;
+                    if (diff == 0) {
+                        return target;
+                    }
+                    if (diff < largerNum) {
+                        largerNum = diff;
+                        closestNum = sum;
+                    }
                 }
+            }
+        }
+        return closestNum;
+    }
+    /**
+     * 解法二：双指针法
+     * 时间复杂度：O(n²)，空间复杂度：O(1)
+     *
+     * @param nums
+     * @param target
+     * @return
+     */
+    public int threeSumClosest2(int[] nums, int target) {
+        if (nums == null || nums.length < 3) {
+            return 0;
+        }
+        Arrays.sort(nums);
+        int largerNum = nums[0] + nums[1] + nums[2];
+        for (int i = 0; i < nums.length - 2; i++) {
+            int left = i + 1;
+            int right = nums.length - 1;
+            while (left < right){
+                int threeSum = nums[left] + nums[right] + nums[i];
+                largerNum = Math.abs(threeSum - target) < Math.abs(largerNum - target) ? threeSum : largerNum;
                 if (threeSum > target) {
-                    r--;
+                    right--;
                 } else if (threeSum < target) {
-                    l++;
+                    left++;
                 } else {
                     return target;
                 }
             }
         }
 
-        return closestNum;
+        return largerNum;
     }
 }
