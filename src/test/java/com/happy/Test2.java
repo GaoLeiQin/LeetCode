@@ -1,6 +1,6 @@
 package com.happy;
 
-import com.happy.AddTwoListNumbers2.ListNode;
+import com.happy.Common.ListNode;
 import org.junit.Test;
 
 /**
@@ -29,20 +29,6 @@ public class Test2 {
         two2.next = three2;
 
         ListNode sumList = addTwoNumbers2.addTwoNumbers(head, head2);
-        System.out.println("使用辅助链表求和：" + printListNode(sumList));
-    }
-
-    /**
-     * 打印链表
-     * @param head
-     * @return
-     */
-    public String printListNode(ListNode head) {
-        StringBuilder sb = new StringBuilder();
-        while (head != null) {
-            sb.append(head.val).append(" → ");
-            head = head.next;
-        }
-        return sb.substring(0, sb.length() - 2);
+        System.out.println("使用辅助链表求和：" + Common.printListNode(sumList));
     }
 }

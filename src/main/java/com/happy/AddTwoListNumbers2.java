@@ -1,5 +1,7 @@
 package com.happy;
 
+import com.happy.Common.ListNode;
+
 /**
  * 第2题
  * 给出两个非空链表表示两个非负的整数。
@@ -10,19 +12,6 @@ package com.happy;
  * @date 2019/04/26
  */
 public class AddTwoListNumbers2 {
-
-    /**
-     * 链表
-     */
-    static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode(int x) {
-            val = x;
-        }
-    }
-
     /**
      * 两个链表求和
      * 时间复杂度：O(max(m, n)),空间复杂度：O(max(m, n))
