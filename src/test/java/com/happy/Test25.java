@@ -4,7 +4,7 @@ import com.happy.Common.ListNode;
 import org.junit.Test;
 
 /**
- * 第25题 k个一组翻转链表
+ * 第25题 k个一组翻转链表（hard）
  *
  * @author qgl
  * @date 2019/05/25

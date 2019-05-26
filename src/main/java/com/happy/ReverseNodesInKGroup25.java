@@ -5,7 +5,7 @@ import com.happy.Common.ListNode;
 import java.util.Stack;
 
 /**
- * 第25题 k个一组翻转链表
+ * 第25题 k个一组翻转链表（hard）
  * 给出一个链表，每 k个节点一组进行翻转，并返回翻转后的链表。
  *
  * @author qgl
@@ -87,13 +87,13 @@ public class ReverseNodesInKGroup25 {
     public ListNode reverseKGroup3(ListNode head, int k) {
         ListNode cur = head;
         int count = 0;
-        while (cur != null && count != k) {
+        while (cur != null && count < k) {
             cur = cur.next;
             count++;
         }
         if (count == k) {
             cur = reverseKGroup3(cur, k);
-            while (count != 0) {
+            while (count > 0) {
                 count--;
                 ListNode tmp = head.next;
                 head.next = cur;
