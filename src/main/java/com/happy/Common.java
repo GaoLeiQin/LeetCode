@@ -1,5 +1,7 @@
 package com.happy;
 
+import java.util.Arrays;
+
 /**
  * 公共的类和方法
  *
@@ -31,5 +33,24 @@ public class Common {
             head = head.next;
         }
         return sb.length() < 1 ? null : sb.substring(0, sb.length() - 2);
+    }
+
+    /**
+     * 打印二维矩阵
+     * @param matrix
+     * @return
+     */
+    public static String printTwoMatrix(int[][] matrix) {
+        if (matrix == null || matrix.length == 0) {
+            return null;
+        }
+        StringBuilder sb = new StringBuilder();
+        sb.append("[");
+        for (int[] a : matrix) {
+            sb.append(Arrays.toString(a)).append(",");
+        }
+        sb.deleteCharAt(sb.length() - 1);
+        sb.append("]");
+        return sb.toString();
     }
 }
