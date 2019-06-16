@@ -44,7 +44,6 @@ public class UniquePaths62 {
                 else {
                     dp[i][j] = dp[i - 1][j] + dp[i][j - 1];
                 }
-                System.out.println("动态规划：" + Common.printTwoMatrix(dp));
             }
         }
         return dp[m - 1][n - 1];
