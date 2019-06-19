@@ -9,6 +9,13 @@ package com.happy;
  * @date 2019/06/18
  */
 public class EditDistance72 {
+    /**
+     * 动态规划
+     *
+     * @param word1
+     * @param word2
+     * @return
+     */
     public int minDistance(String word1, String word2) {
         if (word1 == null || word2 == null) {
             return 0;
