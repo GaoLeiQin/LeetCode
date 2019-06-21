@@ -29,6 +29,9 @@ public class SubSets78 {
 
     private void backTrace(int[] nums, int cur, List<List<Integer>> result, List<Integer> tmp) {
         result.add(new ArrayList<>(tmp));
+        if (tmp.size() >= nums.length) {
+            return;
+        }
         for (int i = cur; i < nums.length; i++) {
             tmp.add(nums[i]);
             backTrace(nums, i + 1, result, tmp);
