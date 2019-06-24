@@ -10,6 +10,19 @@ import java.util.Arrays;
  */
 public class Common {
     /**
+     * 二叉树
+     */
+    public static class TreeNode {
+        int val;
+        TreeNode left;
+        TreeNode right;
+
+        TreeNode(int x) {
+            val = x;
+        }
+    }
+
+    /**
      * 链表
      */
     public static class ListNode {
