@@ -28,11 +28,14 @@ public class RemoveNthFromListEnd19 {
         result.next = head;
         ListNode fast = result;
         ListNode slow = result;
-        while (n-- >= 0) {
+        while (n-- > 0) {
+            if (fast.next == null) {
+                return null;
+            }
             fast = fast.next;
         }
 
-        while (fast != null) {
+        while (fast.next != null) {
             fast = fast.next;
             slow = slow.next;
         }
