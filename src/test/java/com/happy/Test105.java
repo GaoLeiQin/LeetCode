@@ -16,6 +16,6 @@ public class Test105 {
         int[] preOrder = {3, 9, 20, 15, 7};
         int[] inOder = {9, 3, 15, 20, 7};
         TreeNode root = builderTree105.buildTree(preOrder, inOder);
-        System.out.println("二叉树的最大深度：" + new LevelOrderTraversalTree102().levelOrder(root));
+        System.out.println("层序遍历二叉树：" + new LevelOrderTraversalTree102().levelOrder(root));
     }
 }
