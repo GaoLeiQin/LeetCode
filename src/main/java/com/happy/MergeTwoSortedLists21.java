@@ -12,6 +12,7 @@ import com.happy.Common.ListNode;
 public class MergeTwoSortedLists21 {
     /**
      * 解法一：递归
+     * 时间复杂度：O(m+n)，空间复杂度：O(m+n)
      *
      * @param l1
      * @param l2
@@ -38,30 +39,28 @@ public class MergeTwoSortedLists21 {
 
     /**
      * 解法二：非递归
+     * 时间复杂度：O(m+n)，空间复杂度：O(1)
      *
-     * @param l1
-     * @param l2
+     * @param list1
+     * @param list2
      * @return
      */
-    public ListNode mergeTwoLists2(ListNode l1, ListNode l2) {
-        ListNode newHead = new ListNode(0);
-        ListNode result = newHead;
-        while (l1 != null && l2 != null) {
-            if (l1.val < l2.val) {
-                newHead.next = l1;
-                l1 = l1.next;
+    public ListNode mergeTwoLists2(ListNode list1, ListNode list2) {
+        ListNode preHead = new ListNode(-1);
+        ListNode pre = preHead;
+
+        while (list1 != null && list2 != null) {
+            if (list1.val < list2.val) {
+                pre.next = list1;
+                list1 = list1.next;
             } else {
-                newHead.next = l2;
-                l2 = l2.next;
+                pre.next = list2;
+                list2 = list2.next;
             }
-            newHead = newHead.next;
+            pre = pre.next;
         }
 
-        if (l1 == null) {
-            newHead.next = l2;
-        } else {
-            newHead.next = l1;
-        }
-        return result.next;
+        pre.next = list1 == null ? list2 : list1;
+        return preHead.next;
     }
 }
